@@ -5,47 +5,47 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div class="container">
-        <div class="field">
-          <label class="label">First Name</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="First Name" />
+      <div className="container">
+        <div className="field">
+          <label className="label">First Name</label>
+          <div className="control">
+            <input className="input" type="text" placeholder="First Name" />
           </div>
         </div>
 
-        <div class="field">
-          <label class="label">Last Name</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Last Name" />
+        <div className="field">
+          <label className="label">Last Name</label>
+          <div className="control">
+            <input className="input" type="text" placeholder="Last Name" />
           </div>
         </div>
 
-        <div class="field">
-          <label class="label">Email Address</label>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input is-danger" type="email" placeholder="Email input" value="" />
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
+        <div className="field">
+          <label className="label">Email Address</label>
+          <div className="control has-icons-left has-icons-right">
+            <input className="input is-danger" type="email" placeholder="Email input" value="" />
+            <span className="icon is-small is-left">
+              <i className="fas fa-envelope"></i>
             </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-exclamation-triangle"></i>
+            <span className="icon is-small is-right">
+              <i className="fas fa-exclamation-triangle"></i>
             </span>
           </div>
-          <p class="help is-danger">This email is invalid</p>
+          <p className="help is-danger">This email is invalid</p>
         </div>
 
-        <div class="field">
-          <div class="control">
-            <label class="checkbox">
+        <div className="field">
+          <div className="control">
+            <label className="checkbox">
               <input type="checkbox" />
                I accept and agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Statement</a>
             </label>
           </div>
         </div>
 
-        <div class="field is-grouped">
-          <div class="control">
-            <button class="button is-link">Submit</button>
+        <div className="field is-grouped">
+          <div className="control">
+            <button className="button is-link" onClick={this.props.submitHandler}>Submit</button>
           </div>
         </div>
       </div>

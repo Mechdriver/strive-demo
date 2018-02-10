@@ -1000,6 +1000,10 @@ var _LoginForm = __webpack_require__(27);
 
 var _LoginForm2 = _interopRequireDefault(_LoginForm);
 
+var _QuestionPage = __webpack_require__(28);
+
+var _QuestionPage2 = _interopRequireDefault(_QuestionPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1014,34 +1018,63 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Landing = function (_Component) {
   _inherits(Landing, _Component);
 
-  function Landing() {
+  function Landing(props) {
     _classCallCheck(this, Landing);
 
-    return _possibleConstructorReturn(this, (Landing.__proto__ || Object.getPrototypeOf(Landing)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Landing.__proto__ || Object.getPrototypeOf(Landing)).call(this, props));
+
+    _this.state = {
+      'page': 0
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleNextQuestion = _this.handleNextQuestion.bind(_this);
+    return _this;
   }
 
   _createClass(Landing, [{
+    key: 'handleSubmit',
+    value: function handleSubmit(event) {
+      this.setState({ page: 1 });
+    }
+  }, {
+    key: 'handleNextQuestion',
+    value: function handleNextQuestion(event) {
+      this.setState({ page: this.state.page + 1 });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { 'class': 'container' },
-        _react2.default.createElement(
-          'figure',
-          { 'class': 'image is-128x128' },
-          _react2.default.createElement('img', { src: 'https://s3.amazonaws.com/criteria-corp-object-store/ondemandassessment/logos/strive_talent74284.png' })
-        ),
-        _react2.default.createElement(
+      if (this.state.page == 0) {
+        return _react2.default.createElement(
           'div',
-          { 'class': 'notification' },
+          { className: 'container' },
           _react2.default.createElement(
-            'strong',
-            null,
-            'Welcome to the Strive Talent assessment. This assessment will allow you to prove your potential to multiple employers at once. Good luck, and we\'ll be in touch!'
-          )
-        ),
-        _react2.default.createElement(_LoginForm2.default, null)
-      );
+            'figure',
+            { className: 'image is-128x128' },
+            _react2.default.createElement('img', { src: 'https://s3.amazonaws.com/criteria-corp-object-store/ondemandassessment/logos/strive_talent74284.png' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'notification' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'Welcome to the Strive Talent assessment. This assessment will allow you to prove your potential to multiple employers at once. Good luck, and we\'ll be in touch!'
+            )
+          ),
+          _react2.default.createElement(_LoginForm2.default, { submitHandler: this.handleSubmit })
+        );
+      } else if (this.state.page == 1) {
+        return _react2.default.createElement(_QuestionPage2.default, { page: this.state.page, handleNext: this.handleNextQuestion, question: "In your career thus far, what has been your favorite job and least favorite job and why?" });
+      } else if (this.state.page == 2) {
+        return _react2.default.createElement(_QuestionPage2.default, { page: this.state.page, handleNext: this.handleNextQuestion, question: "What do you hope to be doing professionally five years from now?" });
+      } else if (this.state.page == 3) {
+        return _react2.default.createElement(_QuestionPage2.default, { page: this.state.page, handleNext: this.handleNextQuestion, question: "Imagine that you are hired to work at a home repair company. Please describe how you would go about generating customers for your new company." });
+      } else if (this.state.page == 4) {
+        return _react2.default.createElement(_QuestionPage2.default, { page: this.state.page, handleNext: this.handleNextQuestion, question: "Imagine that you work at a home repair company. You recently visited a homeowner and gave them a proposal for $5,000 in repairs to fix a broken outdoor staircase ($1,000), fix a storm drain ($500) and install storm windows for the living room ($3,500). \nYou receive the below email from the client later. Please write your reply below: \nHey! Thanks for coming by earlier. I'm interested in having your home repair company give my house some touch-ups, but I just can't afford the $5,000 right now. I'll be back in touch in six months when I'm done with car payments and can discuss it then. Have a great day! - Doris" });
+      } else if (this.state.page == 5) {
+        return _react2.default.createElement(_QuestionPage2.default, { page: this.state.page, handleNext: this.handleNextQuestion, question: "What is a CRM?\nWhat are the greatest benefits of using a CRM?" });
+      }
     }
   }]);
 
@@ -18355,73 +18388,73 @@ var LoginForm = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { 'class': 'container' },
+        { className: 'container' },
         _react2.default.createElement(
           'div',
-          { 'class': 'field' },
+          { className: 'field' },
           _react2.default.createElement(
             'label',
-            { 'class': 'label' },
+            { className: 'label' },
             'First Name'
           ),
           _react2.default.createElement(
             'div',
-            { 'class': 'control' },
-            _react2.default.createElement('input', { 'class': 'input', type: 'text', placeholder: 'First Name' })
+            { className: 'control' },
+            _react2.default.createElement('input', { className: 'input', type: 'text', placeholder: 'First Name' })
           )
         ),
         _react2.default.createElement(
           'div',
-          { 'class': 'field' },
+          { className: 'field' },
           _react2.default.createElement(
             'label',
-            { 'class': 'label' },
+            { className: 'label' },
             'Last Name'
           ),
           _react2.default.createElement(
             'div',
-            { 'class': 'control' },
-            _react2.default.createElement('input', { 'class': 'input', type: 'text', placeholder: 'Last Name' })
+            { className: 'control' },
+            _react2.default.createElement('input', { className: 'input', type: 'text', placeholder: 'Last Name' })
           )
         ),
         _react2.default.createElement(
           'div',
-          { 'class': 'field' },
+          { className: 'field' },
           _react2.default.createElement(
             'label',
-            { 'class': 'label' },
+            { className: 'label' },
             'Email Address'
           ),
           _react2.default.createElement(
             'div',
-            { 'class': 'control has-icons-left has-icons-right' },
-            _react2.default.createElement('input', { 'class': 'input is-danger', type: 'email', placeholder: 'Email input', value: '' }),
+            { className: 'control has-icons-left has-icons-right' },
+            _react2.default.createElement('input', { className: 'input is-danger', type: 'email', placeholder: 'Email input', value: '' }),
             _react2.default.createElement(
               'span',
-              { 'class': 'icon is-small is-left' },
-              _react2.default.createElement('i', { 'class': 'fas fa-envelope' })
+              { className: 'icon is-small is-left' },
+              _react2.default.createElement('i', { className: 'fas fa-envelope' })
             ),
             _react2.default.createElement(
               'span',
-              { 'class': 'icon is-small is-right' },
-              _react2.default.createElement('i', { 'class': 'fas fa-exclamation-triangle' })
+              { className: 'icon is-small is-right' },
+              _react2.default.createElement('i', { className: 'fas fa-exclamation-triangle' })
             )
           ),
           _react2.default.createElement(
             'p',
-            { 'class': 'help is-danger' },
+            { className: 'help is-danger' },
             'This email is invalid'
           )
         ),
         _react2.default.createElement(
           'div',
-          { 'class': 'field' },
+          { className: 'field' },
           _react2.default.createElement(
             'div',
-            { 'class': 'control' },
+            { className: 'control' },
             _react2.default.createElement(
               'label',
-              { 'class': 'checkbox' },
+              { className: 'checkbox' },
               _react2.default.createElement('input', { type: 'checkbox' }),
               'I accept and agree to the ',
               _react2.default.createElement(
@@ -18440,13 +18473,13 @@ var LoginForm = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          { 'class': 'field is-grouped' },
+          { className: 'field is-grouped' },
           _react2.default.createElement(
             'div',
-            { 'class': 'control' },
+            { className: 'control' },
             _react2.default.createElement(
               'button',
-              { 'class': 'button is-link' },
+              { className: 'button is-link', onClick: this.props.submitHandler },
               'Submit'
             )
           )
@@ -18459,6 +18492,86 @@ var LoginForm = function (_Component) {
 }(_react.Component);
 
 exports.default = LoginForm;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(8);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var QuestionPage = function (_Component) {
+  _inherits(QuestionPage, _Component);
+
+  function QuestionPage() {
+    _classCallCheck(this, QuestionPage);
+
+    return _possibleConstructorReturn(this, (QuestionPage.__proto__ || Object.getPrototypeOf(QuestionPage)).apply(this, arguments));
+  }
+
+  _createClass(QuestionPage, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'section',
+          { className: 'section' },
+          _react2.default.createElement(
+            'div',
+            { className: 'container' },
+            _react2.default.createElement(
+              'h1',
+              { className: 'title' },
+              'Question ',
+              this.props.page,
+              ' of 5'
+            ),
+            _react2.default.createElement(
+              'h2',
+              { className: 'subtitle' },
+              this.props.question
+            )
+          )
+        ),
+        _react2.default.createElement('textarea', { className: 'textarea', placeholder: 'e.g. Hello world' }),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.props.handleNext, className: 'button is-primary' },
+          'Next'
+        )
+      );
+    }
+  }]);
+
+  return QuestionPage;
+}(_react.Component);
+
+exports.default = QuestionPage;
 
 /***/ })
 /******/ ]);

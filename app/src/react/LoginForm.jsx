@@ -9,21 +9,21 @@ class LoginForm extends Component {
         <div className="field">
           <label className="label">First Name</label>
           <div className="control">
-            <input className="input" type="text" placeholder="First Name" />
+            <input className="input" type="text" placeholder="First Name" onChange={this.props.handleFirstName}/>
           </div>
         </div>
 
         <div className="field">
           <label className="label">Last Name</label>
           <div className="control">
-            <input className="input" type="text" placeholder="Last Name" />
+            <input className="input" type="text" placeholder="Last Name" onChange={this.props.handleLastName}/>
           </div>
         </div>
 
         <div className="field">
           <label className="label">Email Address</label>
           <div className="control has-icons-left has-icons-right">
-            <input className="input is-danger" type="email" placeholder="Email input" value="" />
+            <input className="input is-danger" type="email" placeholder="Email input" onChange={this.props.handleEmail}/>
             <span className="icon is-small is-left">
               <i className="fas fa-envelope"></i>
             </span>
@@ -37,7 +37,7 @@ class LoginForm extends Component {
         <div className="field">
           <div className="control">
             <label className="checkbox">
-              <input type="checkbox" />
+              <input type="checkbox" onChange={this.props.handleAccepts}/>
                I accept and agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Statement</a>
             </label>
           </div>
